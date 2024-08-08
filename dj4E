@@ -1,0 +1,25 @@
+# polls/views.py
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Hello, world. e2db1be4 is the polls index.")
+
+# polls/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+
+# mysite/urls.py
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
+
+# mysite/settings.py
+ALLOWED_HOSTS = ['*']
